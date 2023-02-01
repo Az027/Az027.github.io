@@ -1,0 +1,357 @@
+
+
+
+body {
+    background-color: rgb(241, 173, 148) ;
+}
+
+.fondo {
+    max-width: 100%;
+    width: 1500px;
+    
+    
+    position: relative;
+    margin: 50px auto;
+    border-radius: 20px;
+    box-shadow: 5px 8px 12px black;
+}
+
+.logro1{
+    max-width: 100%;
+    scale:0.6;
+   
+    overflow:auto;
+    top: 200px;
+    
+    margin: 50px auto;
+    border-radius: 20px;
+ 
+  
+
+
+}
+
+.logro1:hover{
+    position:relative;
+    max-width: 100%;
+    transform: scale(1.1);
+   
+ 
+}
+
+.logro2:hover{
+    position:absolute;
+    max-width: 100%;
+    transform: scale(1.1);
+    transform: translate(-40%,-40%);
+ 
+}
+.logro3:hover{
+    max-width: 100%;
+    position:absolute;
+    transform: scale(1.1);
+    transform: translate(-39%,-40%);
+
+ 
+}
+.logro2{
+    max-width: 100%;
+    scale: 0.6;
+    position: absolute;
+    top: 15%;
+    left: 68%;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+    cursor:pointer;
+    transition:all 3s  ;
+
+}
+
+.logro3{
+    max-width: 100%;
+    scale: 0.6;
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+    cursor:pointer;
+    transition:all 3s  ;
+
+}
+
+.nombre {
+    max-width: 100%;
+    scale: 0.6;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+}
+
+.logo {
+    max-width: 100%;
+    scale: 1;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+}
+
+.tilde {
+    max-width: 100%;
+    scale: 1;
+    position: absolute;
+    top: 147%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+}
+
+.fondo img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.trayectoria p {
+    max-width: 100%;
+    font-size: 25px;
+   
+    max-width: 600px;
+    position: absolute;
+    top: 175%;
+    left: 31%;
+    transform: translate(-50%,-50%);
+    padding-left: 0%;
+}
+
+.trayectoria h2 {
+    max-width: 100%;
+    font-size: 65px;
+   font-family: Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    position: absolute;
+    top: 135%;
+    left: 31%;
+    transform: translate(-50%,-50%);
+    padding-left: 0%;
+}
+
+.video {
+    max-width: 100%;
+    margin: 0%;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 100;
+
+}
+
+.destacados h2 {
+    max-width: 100%;
+    font-size: 30px;
+    color: rgb(243, 243, 235);
+   font-family: Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    position: absolute;
+    top: 130%;
+    left: 55%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.destacados h1 {
+    max-width: 100%;
+    font-size: 60px;
+    color: rgb(235, 235, 205);
+   font-family: Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    position: absolute;
+    top: 135%;
+    left: 59.7%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.detalle1 h3 {
+    max-width: 100%;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 500px;
+    position: absolute;
+    top: 160%;
+    left: 65%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.detalle2 h3 {
+    max-width: 100%;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 500px;
+    position: absolute;
+    top: 180%;
+    left: 65%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.detalle3 h3 {
+    max-width: 100%;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 500px;
+    position: absolute;
+    top: 200%;
+    left: 65%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.detalle1 a {
+    max-width: 100%;
+    font-size: 25px;
+    color: rgb(193, 222, 255);
+    text-overflow: white;
+    font: italic;
+    max-width: 500px;
+    position: absolute;
+    top: 168%;
+    left: 65%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.detalle2 a {
+    max-width: 100%;
+    font-size: 25px;
+    color: rgb(193, 222, 255);
+    text-overflow: white;
+    font: italic;
+    max-width: 500px;
+    position: absolute;
+    top: 190%;
+    left: 63.5%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.detalle3 a {
+    max-width: 100%;
+    font-size: 25px;
+    color: rgb(193, 222, 255);
+    text-overflow: white;
+    font: italic;
+    max-width: 500px;
+    position: absolute;
+    top: 210%;
+    left: 65%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+    
+}
+
+.instagram a{
+
+    max-width: 100%;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-overflow: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+    text-decoration: underline;
+    position: absolute;
+    top: 253.5%;
+    left: 25%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+
+}
+
+.youtube a{
+
+    max-width: 100%;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-overflow: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+    text-decoration: underline;
+    position: absolute;
+    top: 253.5%;
+    left: 52%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+
+}
+
+.contacto a{
+    max-width: 100%;
+
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-overflow: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 0 0 8px rgba(0, 0, 0.8);
+    text-decoration: underline;
+    position: absolute;
+    top: 253.5%;
+    left: 76%;
+    z-index: 100;
+    transform: translate(-50%,-50%);
+
+}
+
+
+.instagram img{
+    max-width: 100%;
+
+    scale: 0.06;
+    position: absolute;
+    top: 200%;
+    left: -10%;
+    
+    transform: translate(-50%,-50%);
+
+}
+
+.youtube img{
+    max-width: 100%;
+
+    scale: 0.1;
+    position: absolute;
+    top: 231%;
+    left: 27%;
+    
+    transform: translate(-50%,-50%);
+
+}
+
+.contacto img{
+    max-width: 100%;
+
+    scale: 0.15;
+    position: absolute;
+    top: 236.5%;
+    left: 60%;
+    
+    transform: translate(-50%,-50%);
+
+}
