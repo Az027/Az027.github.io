@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Fixture del Pelao Fernández – Mundial 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & base ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --albi: #FFFFFF;
+      --celeste: #74ACDF;
+      --celeste-dark: #3a7bbf;
+      --celeste-deep: #1a5fa0;
+      --gold: #F5C518;
+      --gold-dark: #d4a800;
+      --stripe-w: 44px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0d1b2a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 40px;
+      color: var(--albi);
+    }
+
+    /* ─── Jersey stripe header ─────────────────────────────────────────────── */
+    .jersey-header {
+      width: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--celeste) 0px,
+        var(--celeste) var(--stripe-w),
+        var(--albi) var(--stripe-w),
+        var(--albi) calc(var(--stripe-w) * 2)
+      );
+      padding: 48px 24px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 32px rgba(0,0,0,.55);
+    }
+
+    .jersey-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,27,42,.18) 0%, rgba(13,27,42,.68) 100%);
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #0d1b2a;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      letter-spacing: .04em;
+      color: var(--albi);
+      text-shadow: 0 2px 18px rgba(0,0,0,.7);
+      line-height: 1;
+    }
+
+    .subtitle {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(.9rem, 2.5vw, 1.2rem);
+      color: var(--gold);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .ball-row {
+      margin-top: 16px;
+      font-size: 2rem;
+      letter-spacing: .3em;
+    }
+
+    /* ─── Main card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: linear-gradient(145deg, #132847, #0d1b2a);
+      border: 1px solid rgba(116, 172, 223, .25);
+      border-radius: 18px;
+      width: min(96%, 620px);
+      margin-top: -18px;
+      padding: 32px 28px 28px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ─── Section label ─────────────────────────────────────────────────────── */
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--celeste);
+      margin-bottom: 8px;
+    }
+
+    /* ─── Participants control ──────────────────────────────────────────────── */
+    .control-group {
+      margin-bottom: 28px;
+    }
+
+    .participants-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg,
+        var(--celeste) calc(var(--pct, 37.5%) ),
+        rgba(255,255,255,.15) calc(var(--pct, 37.5%))
+      );
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid #0d1b2a;
+      box-shadow: 0 0 8px rgba(245,197,24,.6);
+      cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid #0d1b2a;
+      box-shadow: 0 0 8px rgba(245,197,24,.6);
+      cursor: pointer;
+    }
+
+    .num-display {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      min-width: 52px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: .72rem;
+      color: rgba(255,255,255,.4);
+      margin-top: 5px;
+    }
+
+    /* ─── Stage selector ────────────────────────────────────────────────────── */
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .stage-btn {
+      background: rgba(116, 172, 223, .08);
+      border: 2px solid rgba(116, 172, 223, .2);
+      border-radius: 12px;
+      padding: 14px 10px;
+      cursor: pointer;
+      text-align: center;
+      transition: all .2s;
+      color: rgba(255,255,255,.7);
+    }
+
+    .stage-btn:hover {
+      border-color: var(--celeste);
+      background: rgba(116, 172, 223, .15);
+      color: var(--albi);
+    }
+
+    .stage-btn.active {
+      background: linear-gradient(135deg, var(--celeste-deep), var(--celeste-dark));
+      border-color: var(--celeste);
+      color: var(--albi);
+      box-shadow: 0 4px 18px rgba(116,172,223,.35);
+    }
+
+    .stage-icon { font-size: 1.6rem; display: block; margin-bottom: 5px; }
+
+    .stage-name {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .stage-pct {
+      font-size: .7rem;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    .stage-btn:not(.active) .stage-pct { color: rgba(245,197,24,.5); }
+
+    /* ─── Divider ────────────────────────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(116,172,223,.3), transparent);
+      margin: 24px 0;
+    }
+
+    /* ─── Fondos total ──────────────────────────────────────────────────────── */
+    .fondos-banner {
+      background: rgba(116, 172, 223, .1);
+      border: 1px solid rgba(116, 172, 223, .2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .fondos-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.7);
+    }
+
+    .fondos-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--celeste);
+      letter-spacing: .04em;
+    }
+
+    /* ─── Prize cards ────────────────────────────────────────────────────────── */
+    .prizes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .prize-card {
+      border-radius: 16px;
+      padding: 22px 16px 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s;
+    }
+
+    .prize-card:hover { transform: translateY(-3px); }
+
+    .prize-card.first {
+      background: linear-gradient(145deg, #7b5c00, #b8860b, #f5c518);
+      box-shadow: 0 6px 28px rgba(245,197,24,.4);
+    }
+
+    .prize-card.second {
+      background: linear-gradient(145deg, #2a3b4d, #3a5a7a, #74acdf);
+      box-shadow: 0 6px 28px rgba(116,172,223,.3);
+    }
+
+    .prize-medal {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
+    }
+
+    .prize-place {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .85;
+      color: rgba(0,0,0,.65);
+    }
+
+    .prize-card.second .prize-place { color: rgba(255,255,255,.75); }
+
+    .prize-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.7rem, 5vw, 2.4rem);
+      line-height: 1.1;
+      margin-top: 4px;
+      color: #0d1b2a;
+      text-shadow: 0 1px 3px rgba(255,255,255,.2);
+    }
+
+    .prize-card.second .prize-amount { color: var(--albi); }
+
+    .prize-pct-badge {
+      display: inline-block;
+      background: rgba(0,0,0,.2);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: .72rem;
+      font-weight: 600;
+      margin-top: 6px;
+      color: rgba(0,0,0,.7);
+    }
+
+    .prize-card.second .prize-pct-badge { color: rgba(255,255,255,.8); }
+
+    /* ─── Stage description ─────────────────────────────────────────────────── */
+    .stage-description {
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--celeste);
+      margin-bottom: 18px;
+    }
+
+    /* ─── No stage selected hint ─────────────────────────────────────────────── */
+    .no-stage {
+      text-align: center;
+      padding: 32px 0 16px;
+      color: rgba(255,255,255,.35);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .no-stage span { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+    /* ─── Footer ─────────────────────────────────────────────────────────────── */
+    footer {
+      margin-top: 36px;
+      text-align: center;
+      color: rgba(255,255,255,.3);
+      font-size: .78rem;
+      letter-spacing: .08em;
+    }
+
+    footer strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    footer .stars { font-size: 1rem; display: block; margin-bottom: 6px; }
+
+    /* ─── Responsive ─────────────────────────────────────────────────────────── */
+    @media (max-width: 400px) {
+      .card { padding: 22px 16px 20px; }
+      .stages-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────────────── -->
+  <header class="jersey-header">
+    <div class="header-content">
+      <div class="badge">&#127942; Mundial 2026</div>
+      <h1>El Fixture del<br>Pelao Fernández</h1>
+      <p class="subtitle">Calculadora de premios por etapa</p>
+      <div class="ball-row">&#9917;&#9917;&#9917;</div>
+    </div>
+  </header>
+
+  <!-- ── Main card ────────────────────────────────────────────────────────── -->
+  <main class="card">
+
+    <!-- Participants -->
+    <div class="control-group">
+      <p class="section-label">&#128101; Cantidad de participantes</p>
+      <div class="participants-row">
+        <input
+          type="range"
+          id="participantsRange"
+          min="5" max="20" value="8"
+          oninput="updateAll()"
+        />
+        <div class="num-display" id="numDisplay">8</div>
+      </div>
+      <div class="range-labels">
+        <span>5</span>
+        <span>20</span>
+      </div>
+    </div>
+
+    <!-- Stage selector -->
+    <div class="control-group">
+      <p class="section-label">&#127937; Etapa del torneo</p>
+      <div class="stages-grid">
+        <button class="stage-btn" data-stage="grupo" onclick="selectStage(this)">
+          <span class="stage-icon">&#128202;</span>
+          <span class="stage-name">Fase de Grupo</span>
+          <div class="stage-pct">1° 15% &nbsp;|&nbsp; 2° 5%</div>
+        </button>
+        <button class="stage-btn" data-stage="16vos" onclick="selectStage(this)">
+          <span class="stage-icon">&#128256;</span>
+          <span class="stage-name">Dieciseisavos</span>
+          <div class="stage-pct">1° 10% &nbsp;|&nbsp; 2° 5%</div>
+        </button>
+        <button class="stage-btn" data-stage="8vos" onclick="selectStage(this)">
+          <span class="stage-icon">&#9876;&#65039;</span>
+          <span class="stage-name">Octavos</span>
+          <div class="stage-pct">1° 10% &nbsp;|&nbsp; 2° 5%</div>
+        </button>
+        <button class="stage-btn" data-stage="global" onclick="selectStage(this)">
+          <span class="stage-icon">&#127942;</span>
+          <span class="stage-name">Final Global</span>
+          <div class="stage-pct">1° 30% &nbsp;|&nbsp; 2° 20%</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Results -->
+    <div id="results">
+      <!-- Fondos -->
+      <div class="fondos-banner">
+        <div>
+          <div class="fondos-label">&#128176; Fondos totales</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:2px;" id="fondosFormula">8 × $30.000</div>
+        </div>
+        <div class="fondos-amount" id="fondosAmount">$240.000</div>
+      </div>
+
+      <!-- Prize display -->
+      <div id="prizeSection">
+        <div class="no-stage">
+          <span>&#128071;</span>
+          Seleccioná una etapa para ver los premios
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────────────────────── -->
+  <footer>
+    <span class="stars">&#11088;&#11088;&#11088;</span>
+    App powered by <strong>Kachito dev</strong>
+  </footer>
+
+  <script>
+    const MONTO = 30000;
+
+    const stages = {
+      grupo:  { name: 'Fase de Grupo',  pct1: 15, pct2: 5 },
+      '16vos':{ name: 'Dieciseisavos',  pct1: 10, pct2: 5 },
+      '8vos': { name: 'Octavos',        pct1: 10, pct2: 5 },
+      global: { name: 'Final Global',   pct1: 30, pct2: 20 },
+    };
+
+    let activeStage = null;
+
+    function formatARS(n) {
+      return '$' + n.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+
+    function updateAll() {
+      const participants = parseInt(document.getElementById('participantsRange').value);
+      const fondos = participants * MONTO;
+
+      // Update slider gradient
+      const range = document.getElementById('participantsRange');
+      const pct = ((participants - 5) / (20 - 5)) * 100;
+      range.style.setProperty('--pct', pct + '%');
+      range.style.background = `linear-gradient(90deg, var(--celeste) ${pct}%, rgba(255,255,255,.15) ${pct}%)`;
+
+      document.getElementById('numDisplay').textContent = participants;
+      document.getElementById('fondosAmount').textContent = formatARS(fondos);
+      document.getElementById('fondosFormula').textContent = `${participants} × ${formatARS(MONTO)}`;
+
+      renderPrizes(fondos);
+    }
+
+    function selectStage(btn) {
+      document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeStage = btn.dataset.stage;
+      updateAll();
+    }
+
+    function renderPrizes(fondos) {
+      const section = document.getElementById('prizeSection');
+
+      if (!activeStage) {
+        section.innerHTML = `<div class="no-stage"><span>&#128071;</span>Seleccioná una etapa para ver los premios</div>`;
+        return;
+      }
+
+      const s = stages[activeStage];
+      const prize1 = Math.round(fondos * s.pct1 / 100);
+      const prize2 = Math.round(fondos * s.pct2 / 100);
+
+      section.innerHTML = `
+        <div class="stage-description">&#127942; ${s.name}</div>
+        <div class="prizes-grid">
+          <div class="prize-card first">
+            <span class="prize-medal">&#129351;</span>
+            <div class="prize-place">1er Premio</div>
+            <div class="prize-amount">${formatARS(prize1)}</div>
+            <span class="prize-pct-badge">${s.pct1}% del fondo</span>
+          </div>
+          <div class="prize-card second">
+            <span class="prize-medal">&#129352;</span>
+            <div class="prize-place">2do Premio</div>
+            <div class="prize-amount">${formatARS(prize2)}</div>
+            <span class="prize-pct-badge">${s.pct2}% del fondo</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // Init
+    updateAll();
+  </script>
+</body>
+</html>
