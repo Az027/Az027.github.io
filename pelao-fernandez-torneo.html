@@ -235,6 +235,8 @@
 
     .stage-btn:not(.active) .stage-pct { color: rgba(245,197,24,.5); }
 
+    .stage-btn--full { grid-column: 1 / -1; }
+
     /* ─── Divider ────────────────────────────────────────────────────────────── */
     .divider {
       height: 1px;
@@ -270,10 +272,13 @@
     }
 
     /* ─── Prize cards ────────────────────────────────────────────────────────── */
-    .prizes-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    .prize-solo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .prize-solo .prize-card {
+      width: min(100%, 280px);
     }
 
     .prize-card {
@@ -427,23 +432,38 @@
       <div class="stages-grid">
         <button class="stage-btn" data-stage="grupo1" onclick="selectStage(this)">
           <span class="stage-icon">&#128202;</span>
-          <span class="stage-name">Fase de Grupos 1</span>
-          <div class="stage-pct">1° 13.33% &nbsp;|&nbsp; 2° 5%</div>
+          <span class="stage-name">Grupos – Fecha 1</span>
+          <div class="stage-pct">1° 13.33%</div>
         </button>
         <button class="stage-btn" data-stage="grupo2" onclick="selectStage(this)">
           <span class="stage-icon">&#128202;</span>
-          <span class="stage-name">Fase de Grupos 2</span>
-          <div class="stage-pct">1° 13.33% &nbsp;|&nbsp; 2° 5%</div>
+          <span class="stage-name">Grupos – Fecha 2</span>
+          <div class="stage-pct">1° 13.33%</div>
         </button>
         <button class="stage-btn" data-stage="grupo3" onclick="selectStage(this)">
           <span class="stage-icon">&#128202;</span>
-          <span class="stage-name">Fase de Grupos 3</span>
-          <div class="stage-pct">1° 13.33% &nbsp;|&nbsp; 2° 5%</div>
+          <span class="stage-name">Grupos – Fecha 3</span>
+          <div class="stage-pct">1° 13.33%</div>
         </button>
-        <button class="stage-btn" data-stage="global" onclick="selectStage(this)">
+        <button class="stage-btn" data-stage="16vos" onclick="selectStage(this)">
+          <span class="stage-icon">&#128256;</span>
+          <span class="stage-name">Dieciseisavos</span>
+          <div class="stage-pct">1° 10%</div>
+        </button>
+        <button class="stage-btn" data-stage="8vos" onclick="selectStage(this)">
+          <span class="stage-icon">&#9876;&#65039;</span>
+          <span class="stage-name">Octavos de Final</span>
+          <div class="stage-pct">1° 10%</div>
+        </button>
+        <button class="stage-btn" data-stage="4semi" onclick="selectStage(this)">
+          <span class="stage-icon">&#127960;&#65039;</span>
+          <span class="stage-name">4tos, Semi y Final</span>
+          <div class="stage-pct">1° 10%</div>
+        </button>
+        <button class="stage-btn stage-btn--full" data-stage="global" onclick="selectStage(this)">
           <span class="stage-icon">&#127942;</span>
           <span class="stage-name">Final Global</span>
-          <div class="stage-pct">1° 30% &nbsp;|&nbsp; 2° 15%</div>
+          <div class="stage-pct">1° 30%</div>
         </button>
       </div>
     </div>
@@ -482,10 +502,13 @@
     const MONTO = 30000;
 
     const stages = {
-      grupo1: { name: 'Fase de Grupos 1', pct1: 13.33, pct2: 5 },
-      grupo2: { name: 'Fase de Grupos 2', pct1: 13.33, pct2: 5 },
-      grupo3: { name: 'Fase de Grupos 3', pct1: 13.33, pct2: 5 },
-      global: { name: 'Final Global',     pct1: 30,    pct2: 15 },
+      grupo1: { name: 'Grupos – Fecha 1',     pct: 13.33 },
+      grupo2: { name: 'Grupos – Fecha 2',     pct: 13.33 },
+      grupo3: { name: 'Grupos – Fecha 3',     pct: 13.33 },
+      '16vos':{ name: 'Dieciseisavos',        pct: 10    },
+      '8vos': { name: 'Octavos de Final',     pct: 10    },
+      '4semi':{ name: '4tos, Semifinal y Final', pct: 10 },
+      global: { name: 'Final Global',         pct: 30    },
     };
 
     let activeStage = null;
@@ -527,23 +550,16 @@
       }
 
       const s = stages[activeStage];
-      const prize1 = Math.round(fondos * s.pct1 / 100);
-      const prize2 = Math.round(fondos * s.pct2 / 100);
+      const prize = Math.round(fondos * s.pct / 100);
 
       section.innerHTML = `
         <div class="stage-description">&#127942; ${s.name}</div>
-        <div class="prizes-grid">
+        <div class="prize-solo">
           <div class="prize-card first">
             <span class="prize-medal">&#129351;</span>
             <div class="prize-place">1er Premio</div>
-            <div class="prize-amount">${formatARS(prize1)}</div>
-            <span class="prize-pct-badge">${s.pct1.toLocaleString('es-AR')}% del fondo</span>
-          </div>
-          <div class="prize-card second">
-            <span class="prize-medal">&#129352;</span>
-            <div class="prize-place">2do Premio</div>
-            <div class="prize-amount">${formatARS(prize2)}</div>
-            <span class="prize-pct-badge">${s.pct2.toLocaleString('es-AR')}% del fondo</span>
+            <div class="prize-amount">${formatARS(prize)}</div>
+            <span class="prize-pct-badge">${s.pct.toLocaleString('es-AR')}% del fondo</span>
           </div>
         </div>
       `;
