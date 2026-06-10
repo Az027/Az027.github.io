@@ -425,25 +425,25 @@
     <div class="control-group">
       <p class="section-label">&#127937; Etapa del torneo</p>
       <div class="stages-grid">
-        <button class="stage-btn" data-stage="grupo" onclick="selectStage(this)">
+        <button class="stage-btn" data-stage="grupo1" onclick="selectStage(this)">
           <span class="stage-icon">&#128202;</span>
-          <span class="stage-name">Fase de Grupo</span>
-          <div class="stage-pct">1° 15% &nbsp;|&nbsp; 2° 5%</div>
+          <span class="stage-name">Fase de Grupos 1</span>
+          <div class="stage-pct">1° 13.33% &nbsp;|&nbsp; 2° 5%</div>
         </button>
-        <button class="stage-btn" data-stage="16vos" onclick="selectStage(this)">
-          <span class="stage-icon">&#128256;</span>
-          <span class="stage-name">Dieciseisavos</span>
-          <div class="stage-pct">1° 10% &nbsp;|&nbsp; 2° 5%</div>
+        <button class="stage-btn" data-stage="grupo2" onclick="selectStage(this)">
+          <span class="stage-icon">&#128202;</span>
+          <span class="stage-name">Fase de Grupos 2</span>
+          <div class="stage-pct">1° 13.33% &nbsp;|&nbsp; 2° 5%</div>
         </button>
-        <button class="stage-btn" data-stage="8vos" onclick="selectStage(this)">
-          <span class="stage-icon">&#9876;&#65039;</span>
-          <span class="stage-name">Octavos</span>
-          <div class="stage-pct">1° 10% &nbsp;|&nbsp; 2° 5%</div>
+        <button class="stage-btn" data-stage="grupo3" onclick="selectStage(this)">
+          <span class="stage-icon">&#128202;</span>
+          <span class="stage-name">Fase de Grupos 3</span>
+          <div class="stage-pct">1° 13.33% &nbsp;|&nbsp; 2° 5%</div>
         </button>
         <button class="stage-btn" data-stage="global" onclick="selectStage(this)">
           <span class="stage-icon">&#127942;</span>
           <span class="stage-name">Final Global</span>
-          <div class="stage-pct">1° 30% &nbsp;|&nbsp; 2° 20%</div>
+          <div class="stage-pct">1° 30% &nbsp;|&nbsp; 2° 15%</div>
         </button>
       </div>
     </div>
@@ -482,10 +482,10 @@
     const MONTO = 30000;
 
     const stages = {
-      grupo:  { name: 'Fase de Grupo',  pct1: 15, pct2: 5 },
-      '16vos':{ name: 'Dieciseisavos',  pct1: 10, pct2: 5 },
-      '8vos': { name: 'Octavos',        pct1: 10, pct2: 5 },
-      global: { name: 'Final Global',   pct1: 30, pct2: 20 },
+      grupo1: { name: 'Fase de Grupos 1', pct1: 13.33, pct2: 5 },
+      grupo2: { name: 'Fase de Grupos 2', pct1: 13.33, pct2: 5 },
+      grupo3: { name: 'Fase de Grupos 3', pct1: 13.33, pct2: 5 },
+      global: { name: 'Final Global',     pct1: 30,    pct2: 15 },
     };
 
     let activeStage = null;
@@ -537,13 +537,13 @@
             <span class="prize-medal">&#129351;</span>
             <div class="prize-place">1er Premio</div>
             <div class="prize-amount">${formatARS(prize1)}</div>
-            <span class="prize-pct-badge">${s.pct1}% del fondo</span>
+            <span class="prize-pct-badge">${s.pct1.toLocaleString('es-AR')}% del fondo</span>
           </div>
           <div class="prize-card second">
             <span class="prize-medal">&#129352;</span>
             <div class="prize-place">2do Premio</div>
             <div class="prize-amount">${formatARS(prize2)}</div>
-            <span class="prize-pct-badge">${s.pct2}% del fondo</span>
+            <span class="prize-pct-badge">${s.pct2.toLocaleString('es-AR')}% del fondo</span>
           </div>
         </div>
       `;
